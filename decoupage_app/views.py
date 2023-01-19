@@ -13,25 +13,24 @@ def departementView(request):
     serialization = DepartementSerializer(queryset, many=True)
     return Response(serialization.data)
 
-def communeView(request):
-    id_dep = request.GET.get('id_dep')
+@api_view(['GET'])
+def communeView(request, id_dep):
     queryset = Commune.objects.filter(id_dep=id_dep).order_by('lib_com')
-
     serialization = CommuneSerializer(queryset, many=True)
     return Response(serialization.data)
 
-def arrondissementView(request):
-    id_com = request.GET.get('id_com')
+@api_view(['GET'])
+def arrondissementView(request, id_com):
     queryset = Arrondissement.objects.filter(id_com=id_com).order_by('lib_arrond')
 
     serialization = ArrondissementSerializer(queryset, many=True)
     return Response(serialization.data)
 
-def quartierView(request):
-    id_arrond = request.GET.get('id_arrond')
-    queryset = Arrondissement.objects.filter(id_arrond=id_arrond).order_by('lib_quart')
+@api_view(['GET'])
+def quartierView(request, id_arrond):
+    queryset = Quartier.objects.filter(id_arrond=id_arrond).order_by('lib_quart')
 
-    serialization = ArrondissementSerializer(queryset, many=True)
+    serialization = QuartierSerializer(queryset, many=True)
     return Response(serialization.data)
 
 """

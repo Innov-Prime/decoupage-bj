@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from decoupage_app.urls import router as benin_rooter
+#from decoupage_app.urls import router as benin_rooter
 
-router = routers.DefaultRouter()
-router.registry.extend(benin_rooter.registry)
+#router = routers.DefaultRouter()
+#router.registry.extend(benin_rooter.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    #path('', include(router.urls)),
+    path('', include('decoupage_app.urls')),
 ]
