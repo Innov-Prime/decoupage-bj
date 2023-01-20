@@ -32,33 +32,3 @@ def quartierView(request, id_arrond):
 
     serialization = QuartierSerializer(queryset, many=True)
     return Response(serialization.data)
-
-"""
-@api_view(['GET'])
-class DepartementViewSet(viewsets.ModelViewSet):
-    queryset = Departement.objects.all()
-    serializer_class = DepartementSerializer
-
-
-@api_view
-class CommuneViewSet(viewsets.ModelViewSet):
-    queryset = Commune.objects.all()
-    serializer_class = CommuneSerializer
-    
-    # def get_queryset(self):
-    #     queryset = Commune.objects.all()
-    #     id_depart = self.request.query_params.get('id_depart')
-    #     if id_depart is not None :
-    #         queryset = queryset.filter(id_depart=id_depart).order_by('lib_com')
-    #     return queryset
-
-@api_view
-class ArrondissementViewSet(viewsets.ModelViewSet):
-    queryset = Arrondissement.objects.all()
-    serializer_class = ArrondissementSerializer
-
-@api_view
-class QuartierViewSet(viewsets.ModelViewSet):
-    queryset = Quartier.objects.all()
-    serializer_class = QuartierSerializer
-"""
