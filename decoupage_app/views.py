@@ -40,13 +40,11 @@ def communeView(request, id_dep):
 @api_view(['GET'])
 def arrondissementView(request, id_com):
     queryset = Arrondissement.objects.filter(id_com=id_com).order_by('lib_arrond')
-
     serialization = ArrondissementSerializer(queryset, many=True)
     return Response(serialization.data)
 
 @api_view(['GET'])
 def quartierView(request, id_arrond):
     queryset = Quartier.objects.filter(id_arrond=id_arrond).order_by('lib_quart')
-
     serialization = QuartierSerializer(queryset, many=True)
     return Response(serialization.data)
